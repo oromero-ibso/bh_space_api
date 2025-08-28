@@ -1,12 +1,14 @@
 from flask import Flask, jsonify, request
 import json
+import os
 
 app = Flask(__name__)
 
 # Token válido
 VALID_TOKEN = "ceEpOIjcVcHpPThviYYFw"
 
-with open("productos.json", "r", encoding="utf-8") as f:
+BASE_DIR = os.path.dirname(__file__)
+with open(os.path.join(BASE_DIR, "data", "productos.json"), "r", encoding="utf-8") as f:
     productos = json.load(f)
 
 @app.route('/')
