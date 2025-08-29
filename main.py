@@ -15,7 +15,7 @@ with open(os.path.join(BASE_DIR, "data", "productos.json"), "r", encoding="utf-8
 def root():
     return "Home"
 
-@app.route('/api/products', methods=['GET'])
+@app.route('/api/all_products', methods=['GET'])
 def get_data():
     # Leer header Authorization
     auth_header = request.headers.get("Authorization")
