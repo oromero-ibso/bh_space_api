@@ -44,7 +44,8 @@ def get_paginated_products():
     # Parámetros de paginación
     try:
         page = int(request.args.get("page", 1))
-        limit = int(request.args.get("limit", 600))
+        limit = int(request.args.get("limit", 600))  # default 600
+        limit = min(limit, 1000)  # máximo 1000 por seguridad
     except ValueError:
         return jsonify({"message": "Invalid pagination params"}), 400
 
